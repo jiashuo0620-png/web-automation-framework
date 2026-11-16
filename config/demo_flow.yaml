@@ -1,0 +1,30 @@
+name: demo-form-flow
+retry: 1
+
+steps:
+  - action: goto
+    url: "{site}/index.html"
+    name: 打开示例页面
+
+  - action: fill
+    selector: "#name"
+    value: "测试用户"
+    name: 填写姓名
+
+  - action: fill
+    selector: "#email"
+    value: "test@example.com"
+    name: 填写邮箱
+
+  - action: click
+    selector: "#submit"
+    name: 点击提交
+
+  - action: expect_text
+    selector: "#result"
+    value: "提交成功"
+    name: 断言结果
+
+  - action: screenshot
+    path: "success.png"
+    name: 保存截图

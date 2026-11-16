@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>示例表单</title>
+  <style>
+    body { font-family: -apple-system, "PingFang SC", sans-serif; background: #f6f7f9; margin: 0; padding: 48px; }
+    .card { max-width: 420px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+    h1 { font-size: 20px; margin: 0 0 24px; }
+    label { display: block; font-size: 14px; color: #444; margin-bottom: 16px; }
+    input { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; padding: 10px 12px; border: 1px solid #d9dde3; border-radius: 8px; font-size: 14px; }
+    button { width: 100%; padding: 12px; border: 0; border-radius: 8px; background: #2f6fed; color: #fff; font-size: 15px; cursor: pointer; }
+    #result { margin-top: 20px; font-size: 15px; color: #1a9c5b; min-height: 22px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>示例表单</h1>
+    <label>姓名<input id="name" name="name" autocomplete="off"></label>
+    <label>邮箱<input id="email" name="email" autocomplete="off"></label>
+    <button id="submit" type="button">提交</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    document.getElementById('submit').addEventListener('click', function () {
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var result = document.getElementById('result');
+      if (!name || !email) {
+        result.style.color = '#d33';
+        result.textContent = '请填写完整';
+        return;
+      }
+      result.style.color = '#1a9c5b';
+      result.textContent = '提交成功';
+    });
+  </script>
+</body>
+</html>
